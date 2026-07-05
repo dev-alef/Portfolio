@@ -4,7 +4,7 @@
     {
       "name": "portfolio-preview",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["--yes", "serve", "src", "-l", "5173"],
+      "runtimeArgs": ["--yes", "serve", "dist", "-l", "5173"],
       "port": 5173
     }
   ]
