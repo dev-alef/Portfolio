@@ -1,326 +1,390 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alerson Ferreira — Dev Fullstack</title>
-<meta name="description" content="Portfólio de Alerson Ferreira, Desenvolvedor Fullstack curioso por natureza e preciso por propósito. React, Node.js, Cibersegurança e IA.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌲</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alerson Ferreira — Dev Fullstack</title>
+  <meta name="description"
+    content="Portfólio de Alerson Ferreira, Desenvolvedor Fullstack curioso por natureza e preciso por propósito. React, Node.js, Cibersegurança e IA.">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌲</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<!-- PORTFÓLIO ALERSON FERREIRA -->
-<div id="intro" role="dialog" aria-label="Tela de entrada do portfólio">
-  <div class="intro-photo" aria-hidden="true"></div>
-  <div class="intro-forest" aria-hidden="true"></div>
-  <div class="sun-rays" aria-hidden="true"></div>
-  <div class="sequoias" aria-hidden="true"></div>
-  <button class="btn-skip" id="btnSkip" aria-label="Pular introdução">Pular intro ↓</button>
-  <div class="intro-content">
-    <span class="intro-icon" aria-hidden="true">🌲</span>
-    <p class="intro-eyebrow">Portfólio de</p>
-    <h1 class="intro-title">Alerson Ferreira</h1>
-    <p class="intro-subtitle">Dev Fullstack</p>
-    <div class="intro-progress-wrap" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Carregando">
-      <div class="intro-progress-label">
-        <span id="introStatusText">Iniciando sistemas...</span>
-        <span id="introPct">0%</span>
+  <!-- PORTFÓLIO ALERSON FERREIRA -->
+  <div id="intro" role="dialog" aria-label="Tela de entrada do portfólio">
+    <div class="intro-photo" aria-hidden="true"></div>
+    <div class="intro-forest" aria-hidden="true"></div>
+    <div class="sun-rays" aria-hidden="true"></div>
+    <div class="sequoias" aria-hidden="true"></div>
+    <button class="btn-skip" id="btnSkip" aria-label="Pular introdução">Pular intro ↓</button>
+    <div class="intro-content">
+      <span class="intro-icon" aria-hidden="true">🌲</span>
+      <p class="intro-eyebrow">Portfólio de</p>
+      <h1 class="intro-title">Alerson Ferreira</h1>
+      <p class="intro-subtitle">Dev Fullstack</p>
+      <div class="intro-progress-wrap" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+        aria-label="Carregando">
+        <div class="intro-progress-label">
+          <span id="introStatusText">Iniciando sistemas...</span>
+          <span id="introPct">0%</span>
+        </div>
+        <div class="intro-bar-bg">
+          <div class="intro-bar-fill" id="introBar"></div>
+        </div>
       </div>
-      <div class="intro-bar-bg"><div class="intro-bar-fill" id="introBar"></div></div>
+      <button class="btn-enter" id="btnEnter" aria-label="Entrar no portfólio">Entrar na Floresta</button>
     </div>
-    <button class="btn-enter" id="btnEnter" aria-label="Entrar no portfólio">Entrar na Floresta</button>
   </div>
-</div>
 
-<div class="particles" id="particles" aria-hidden="true"></div>
-<audio id="bgAudio" preload="none"></audio>
+  <div class="particles" id="particles" aria-hidden="true"></div>
+  <audio id="bgAudio" preload="none"></audio>
 
-<nav id="navbar" aria-label="Navegação principal">
-  <a href="#hero" class="nav-logo" aria-label="Alerson Ferreira - Início">🌿 <span>Alerson</span>.dev</a>
-  <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-links" id="navLinks" role="list">
-    <li><a href="#hero" class="active">Início</a></li>
-    <li><a href="#sobre">Sobre</a></li>
-    <li><a href="#portfolio">Portfólio</a></li>
-    <li><a href="#certificados">Certificados</a></li>
-  </ul>
-  <div class="sound-group" role="group" aria-label="Áudio de fundo">
-    <button class="mode-btn active" id="modeMusic" data-mode="music" aria-pressed="true" aria-label="Modo música">🎵</button>
-    <button class="mode-btn" id="modeAmbience" data-mode="ambience" aria-pressed="false" aria-label="Modo som ambiente">🍃</button>
-    <button class="track-btn" id="prevTrack" aria-label="Faixa anterior">⏮</button>
-    <button class="nav-sound" id="soundBtn" aria-label="Ativar som" aria-pressed="false">🔇</button>
-    <button class="track-btn" id="nextTrack" aria-label="Próxima faixa">⏭</button>
-  </div>
-</nav>
-
-<main>
-  <!-- HERO -->
-  <section id="hero" aria-labelledby="heroTitle">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="hero-container">
-      <div class="hero-text">
-        <div class="hero-badge" role="status">Disponível para oportunidades</div>
-        <h2 class="hero-title" id="heroTitle">
-          Dev Fullstack
-          <span class="highlight">Curioso por Natureza,</span>
-          <span class="highlight-gold">Preciso por Propósito.</span>
-        </h2>
-        <p class="hero-desc">
-          Crio coisas com propósito — do front-end ao back-end, com os olhos em Cibersegurança e Inteligência Artificial. 
-          Assim como as sequoias crescem devagar mas chegam longe, construo soluções sólidas que resistem ao tempo.
-        </p>
-        <div class="hero-ctas">
-          <a href="#portfolio" class="btn-primary">🌱 Ver Projetos</a>
-          <a href="#" class="btn-outline" id="cvBtn">📄 Baixar CV</a>
-        </div>
-        <div class="hero-socials">
-          <a href="#" aria-label="GitHub de Alerson Ferreira">🐙 GitHub</a>
-          <a href="#" aria-label="LinkedIn de Alerson Ferreira">💼 LinkedIn</a>
-          <a href="#" aria-label="Enviar email para Alerson Ferreira">✉️ Email</a>
-        </div>
-      </div>
-      <div class="hero-photo-wrap">
-        <div class="hero-photo-ring" role="img" aria-label="Foto de Alerson Ferreira">
-          <div class="hero-photo-placeholder">🧑‍💻</div>
-          <div class="hero-tag" aria-hidden="true">⚡ Fullstack Dev</div>
-          <div class="hero-tag" aria-hidden="true">🔐 Cybersec</div>
-          <div class="hero-tag" aria-hidden="true">🤖 IA</div>
-        </div>
-      </div>
+  <nav id="navbar" aria-label="Navegação principal">
+    <a href="#hero" class="nav-logo" aria-label="Alerson Ferreira - Início">🌿 <span>Alerson</span>.dev</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks" role="list">
+      <li><a href="#hero" class="active">Início</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#portfolio">Portfólio</a></li>
+      <li><a href="#certificados">Certificados</a></li>
+    </ul>
+    <div class="sound-group" role="group" aria-label="Áudio de fundo">
+      <button class="mode-btn active" id="modeMusic" data-mode="music" aria-pressed="true"
+        aria-label="Modo música">🎵</button>
+      <button class="mode-btn" id="modeAmbience" data-mode="ambience" aria-pressed="false"
+        aria-label="Modo som ambiente">🍃</button>
+      <button class="track-btn" id="prevTrack" aria-label="Faixa anterior">⏮</button>
+      <button class="nav-sound" id="soundBtn" aria-label="Ativar som" aria-pressed="false">🔇</button>
+      <button class="track-btn" id="nextTrack" aria-label="Próxima faixa">⏭</button>
     </div>
-  </section>
+  </nav>
 
-  <!-- SOBRE -->
-  <section id="sobre" aria-labelledby="sobreTitle">
-    <div class="section-photo-bg sobre-bg" aria-hidden="true"></div>
-    <div class="section-header">
-      <span class="section-eyebrow" aria-hidden="true">// sobre.js</span>
-      <h2 class="section-title" id="sobreTitle">Quem planta <span class="gold">a semente</span></h2>
-      <div class="section-divider" aria-hidden="true"></div>
-    </div>
-    <div class="sobre-grid">
-      <div class="sobre-visual">
-        <div class="sobre-avatar" role="img" aria-label="Ilustração de floresta representando Alerson">🌲</div>
-        <div class="stats-grid">
-          <div class="stat-card">
-            <span class="stat-num" aria-label="Mais de 10 tecnologias">10+</span>
-            <span class="stat-label">Tecnologias</span>
+  <main>
+    <!-- HERO -->
+    <section id="hero" aria-labelledby="heroTitle">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-container">
+        <div class="hero-text">
+          <div class="hero-badge" role="status">Disponível para oportunidades</div>
+          <h2 class="hero-title" id="heroTitle">
+            Dev Fullstack
+            <span class="highlight">Curioso por Natureza,</span>
+            <span class="highlight-gold">Preciso por Propósito.</span>
+          </h2>
+          <p class="hero-desc">
+            Crio coisas com propósito — do front-end ao back-end, com os olhos em Cibersegurança e Inteligência
+            Artificial.
+            Assim como as sequoias crescem devagar mas chegam longe, construo soluções sólidas que resistem ao tempo.
+          </p>
+          <div class="hero-ctas">
+            <a href="#portfolio" class="btn-primary">🌱 Ver Projetos</a>
+            <a href="#" class="btn-outline" id="cvBtn">📄 Baixar CV</a>
           </div>
-          <div class="stat-card">
-            <span class="stat-num" aria-label="Em desenvolvimento">Dev</span>
-            <span class="stat-label">Em crescimento</span>
+          <div class="hero-socials">
+            <a href="https://github.com/dev-alef" aria-label="GitHub de Alerson Ferreira">🐙 GitHub</a>
+            <a href="https://www.linkedin.com/in/alersonferreira/" aria-label="LinkedIn de Alerson Ferreira">💼
+              LinkedIn</a>
+            <a href="#" aria-label="Enviar email para Alerson Ferreira">✉️ Email</a>
           </div>
-          <div class="stat-card">
-            <span class="stat-num" aria-label="Inteligência Artificial">IA</span>
-            <span class="stat-label">Agentes & Fluxos</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-num" aria-label="Cibersegurança">🔐</span>
-            <span class="stat-label">Aprendendo</span>
+        </div>
+        <div class="hero-photo-wrap">
+          <div class="hero-photo-ring" role="img" aria-label="Foto de Alerson Ferreira">
+            <div class="hero-photo-placeholder">
+              <img src="./img/perfil.png" alt="Alerson Ferreira" class="hero-photo">
+            </div>
+            <div class="hero-tag" aria-hidden="true">⚡ Fullstack Dev</div>
+            <div class="hero-tag" aria-hidden="true">🔐 Cybersec</div>
+            <div class="hero-tag" aria-hidden="true">🤖 IA</div>
           </div>
         </div>
       </div>
-      <div class="sobre-content">
-        <div class="missao-card">
-          <p class="missao-label" aria-hidden="true">🌿 Missão pessoal</p>
-          <p class="missao-text">Criar coisas com <em>propósito</em> — código que serve a pessoas reais, com impacto que persiste.</p>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" aria-labelledby="sobreTitle">
+      <div class="section-photo-bg sobre-bg" aria-hidden="true"></div>
+      <div class="section-header">
+        <span class="section-eyebrow" aria-hidden="true">// sobre.js</span>
+        <h2 class="section-title" id="sobreTitle">Quem planta <span class="gold">a semente</span></h2>
+        <div class="section-divider" aria-hidden="true"></div>
+      </div>
+      <div class="sobre-grid">
+        <div class="sobre-visual">
+          <div class="sobre-avatar" role="img" aria-label="Ilustração de floresta representando Alerson">🌲</div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-num" aria-label="Mais de 10 tecnologias">10+</span>
+              <span class="stat-label">Tecnologias</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num" aria-label="Em desenvolvimento">Dev</span>
+              <span class="stat-label">Em crescimento</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num" aria-label="Inteligência Artificial">IA</span>
+              <span class="stat-label">Agentes & Fluxos</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num" aria-label="Cibersegurança">🔐</span>
+              <span class="stat-label">Aprendendo</span>
+            </div>
+          </div>
         </div>
-        <div class="sobre-bio">
-          <p>Sou um <strong>Desenvolvedor Fullstack Junior</strong> apaixonado por tecnologia e pelo que ela pode construir. Trabalho com React, Node.js e estou expandindo meu horizonte para <strong>Cibersegurança</strong> e <strong>Inteligência Artificial</strong>.</p>
-          <p>Me inspiro nas sequoias da Califórnia: crescem devagar, com raízes profundas, e duram séculos. Também na natureza de Israel — terra que transforma deserto em jardim com engenhosidade e determinação.</p>
-          <p>Estou em busca da minha primeira oportunidade para crescer junto com equipes que acreditam no poder do código com propósito.</p>
-        </div>
-        <div class="exp-section">
-          <h3 class="exp-section-title">💼 Experiência Profissional</h3>
-          <div class="exp-card">
-            <div class="exp-card-header">
-              <div>
-                <p class="exp-title">Sua experiência aqui</p>
-                <p class="exp-company">Empresa</p>
+        <div class="sobre-content">
+          <div class="missao-card">
+            <p class="missao-label" aria-hidden="true">🌿 Missão pessoal</p>
+            <p class="missao-text">Criar coisas com <em>propósito</em> — código que serve a pessoas reais, com impacto
+              que persiste.</p>
+          </div>
+          <div class="sobre-bio">
+            <p>Sou um <strong>Desenvolvedor Fullstack Junior</strong> apaixonado por tecnologia e pelo que ela pode
+              construir. Trabalho com React, Node.js e estou expandindo meu horizonte para
+              <strong>Cibersegurança</strong> e <strong>Inteligência Artificial</strong>.
+            </p>
+            <p>Me inspiro nas sequoias da Califórnia: crescem devagar, com raízes profundas, e duram séculos. Também na
+              natureza de Israel — terra que transforma deserto em jardim com engenhosidade e determinação.</p>
+            <p>Estou em busca da minha primeira oportunidade para crescer junto com equipes que acreditam no poder do
+              código com propósito.</p>
+          </div>
+          <div class="exp-section">
+            <h3 class="exp-section-title">💼 Experiência Profissional</h3>
+            <div class="exp-card">
+              <div class="exp-card-header">
+                <div>
+                  <p class="exp-title">função</p>
+                  <p class="exp-company">Empresa</p>
+                </div>
+                <span class="exp-period">Em breve</span>
               </div>
-              <span class="exp-period">Em breve</span>
-            </div>
-            <p class="exp-desc">Adicione sua experiência profissional aqui.</p>
-            <div class="tags-row">
-              <span class="tag">React</span>
-              <span class="tag">Node.js</span>
-            </div>
-          </div>
-        </div>
-        <div class="exp-section">
-          <h3 class="exp-section-title">🎓 Formação</h3>
-          <div class="exp-card">
-            <div class="exp-card-header">
-              <div>
-                <p class="exp-title">Seu curso aqui</p>
-                <p class="exp-company">Instituição</p>
+              <p class="exp-desc">experiência</p>
+              <div class="tags-row">
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
               </div>
-              <span class="exp-period">Em andamento</span>
-            </div>
-            <p class="exp-desc">Adicione sua formação acadêmica aqui.</p>
-            <div class="tags-row">
-              <span class="tag">HTML5</span><span class="tag">CSS3</span>
-              <span class="tag">JavaScript</span><span class="tag">Git</span>
             </div>
           </div>
+          <div class="exp-section">
+            <h3 class="exp-section-title">🎓 Formação</h3>
+            <div class="exp-card">
+              <div class="exp-card-header">
+                <div>
+                  <p class="exp-title">Fullstack Pro</p>
+                  <p class="exp-company">Devclub</p>
+                </div>
+                <span class="exp-period">Em andamento</span>
+              </div>
+              <p class="exp-desc">Curso completo de desenvolvimento web, do zero ao avançado.</p>
+              <div class="tags-row">
+                <span class="tag">HTML5</span><span class="tag">CSS3</span>
+                <span class="tag">JavaScript</span><span class="tag">Git</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="tech-section">
-      <h3 class="tech-title">🛠️ Tech Stack & Ferramentas</h3>
-      <div class="tech-track-wrap" aria-label="Carrossel de tecnologias">
-        <div class="tech-track" id="techTrack"></div>
+      <div class="tech-section">
+        <h3 class="tech-title">🛠️ Tech Stack & Ferramentas</h3>
+        <div class="tech-track-wrap" aria-label="Carrossel de tecnologias">
+          <div class="tech-track" id="techTrack"></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PORTFÓLIO -->
-  <section id="portfolio" aria-labelledby="portfolioTitle">
-    <div class="section-photo-bg portfolio-bg" aria-hidden="true"></div>
-    <div class="section-header">
-      <span class="section-eyebrow" aria-hidden="true">// projetos.map()</span>
-      <h2 class="section-title" id="portfolioTitle">Raízes & <span class="gold">Ramos</span></h2>
-      <div class="section-divider" aria-hidden="true"></div>
-    </div>
-    <div class="portfolio-filters" role="group" aria-label="Filtrar projetos">
-      <span class="filter-label">Filtrar:</span>
-      <button class="filter-btn active" data-filter="todos" aria-pressed="true">Todos</button>
-      <button class="filter-btn" data-filter="frontend" aria-pressed="false">Front-end</button>
-      <button class="filter-btn" data-filter="fullstack" aria-pressed="false">Fullstack</button>
-      <button class="filter-btn" data-filter="ia" aria-pressed="false">IA</button>
-    </div>
-    <div class="portfolio-grid" id="portfolioGrid">
-      <article class="project-card featured" data-category="fullstack">
-        <span class="card-badge featured" aria-label="Projeto destacado">⭐ Destaque</span>
-        <div class="card-thumb">
-          <div class="card-thumb-placeholder">
-            <span class="icon">🌿</span>
-            <span>Adicione um screenshot</span>
+    <!-- PORTFÓLIO -->
+    <section id="portfolio" aria-labelledby="portfolioTitle">
+      <div class="section-photo-bg portfolio-bg" aria-hidden="true"></div>
+      <div class="section-header">
+        <span class="section-eyebrow" aria-hidden="true">// projetos.map()</span>
+        <h2 class="section-title" id="portfolioTitle">Raízes & <span class="gold">Ramos</span></h2>
+        <div class="section-divider" aria-hidden="true"></div>
+      </div>
+      <div class="portfolio-filters" role="group" aria-label="Filtrar projetos">
+        <span class="filter-label">Filtrar:</span>
+        <button class="filter-btn active" data-filter="todos" aria-pressed="true">Todos</button>
+        <button class="filter-btn" data-filter="frontend" aria-pressed="false">Front-end</button>
+        <button class="filter-btn" data-filter="fullstack" aria-pressed="false">Fullstack</button>
+        <button class="filter-btn" data-filter="ia" aria-pressed="false">IA</button>
+      </div>
+      <div class="portfolio-grid" id="portfolioGrid">
+        <article class="project-card featured" data-category="fullstack">
+          <span class="card-badge featured" aria-label="Projeto destacado">⭐ Destaque</span>
+          <div class="card-thumb">
+            <img src="./img/dashboard.png" alt="Fintrack">
           </div>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">Seu Projeto Principal</h3>
-          <p class="card-desc">Descreva aqui seu projeto mais importante. O que ele faz? Qual problema resolve? Quem usa?</p>
-          <div class="card-stack">
-            <span class="stack-tag">React</span>
-            <span class="stack-tag">Node.js</span>
-            <span class="stack-tag">MongoDB</span>
+          <div class="card-body">
+            <h3 class="card-title">Fintrack </h3>
+            <p class="card-desc">Sistema completo de gestão financeira pessoal com análise por Inteligência Artificial
+            </p>
+            <div class="card-stack">
+              <span class="stack-tag">React</span>
+              <span class="stack-tag">Node.js</span>
+              <span class="stack-tag">MongoDB</span>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/dev-alef/fintrack" class="card-btn-ghost" aria-label="Ver código no GitHub">🐙
+                GitHub</a>
+              <a href="https://fintrack-web-ivory.vercel.app/login" class="card-btn-primary"
+                aria-label="Ver demonstração do projeto">🚀 Ver Projeto</a>
+            </div>
           </div>
-          <div class="card-links">
-            <a href="#" class="card-btn-ghost" aria-label="Ver código no GitHub">🐙 GitHub</a>
-            <a href="#" class="card-btn-primary" aria-label="Ver demonstração do projeto">🚀 Ver Projeto</a>
+        </article>
+        <article class="project-card" data-category="frontend">
+          <div class="card-thumb">
+            <div class="card-thumb-placeholder">
+              <span class="icon">🎨</span>
+              <span>Screenshot</span>
+            </div>
           </div>
-        </div>
-      </article>
-      <article class="project-card" data-category="frontend">
-        <div class="card-thumb">
-          <div class="card-thumb-placeholder">
-            <span class="icon">🎨</span>
-            <span>Screenshot do projeto</span>
+          <div class="card-body">
+            <h3 class="card-title">Projeto Front-end</h3>
+            <p class="card-desc">?</p>
+            <div class="card-stack">
+              <span class="stack-tag">HTML5</span>
+              <span class="stack-tag">CSS3</span>
+              <span class="stack-tag">JavaScript</span>
+            </div>
+            <div class="card-links">
+              <a href="#" class="card-btn-ghost" aria-label="Ver código no GitHub">🐙 GitHub</a>
+              <a href="#" class="card-btn-primary" aria-label="Ver demonstração">🚀 Ver Projeto</a>
+            </div>
           </div>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">Projeto Front-end</h3>
-          <p class="card-desc">Adicione a descrição do seu projeto front-end aqui. Foque no que o torna especial.</p>
-          <div class="card-stack">
-            <span class="stack-tag">HTML5</span>
-            <span class="stack-tag">CSS3</span>
-            <span class="stack-tag">JavaScript</span>
+        </article>
+        <article class="project-card" data-category="ia">
+          <span class="card-badge wip" aria-label="Em desenvolvimento">🔧 Em breve</span>
+          <div class="card-thumb">
+            <div class="card-thumb-placeholder">
+              <span class="icon">🤖</span>
+              <span>Projeto com IA</span>
+            </div>
           </div>
-          <div class="card-links">
-            <a href="#" class="card-btn-ghost" aria-label="Ver código no GitHub">🐙 GitHub</a>
-            <a href="#" class="card-btn-primary" aria-label="Ver demonstração">🚀 Ver Projeto</a>
+          <div class="card-body">
+            <h3 class="card-title">Projeto com IA</h3>
+            <p class="card-desc">??</p>
+            <div class="card-stack">
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">OpenAI</span>
+              <span class="stack-tag">N8N</span>
+            </div>
+            <div class="card-links">
+              <a href="#" class="card-btn-ghost" aria-label="Ver código no GitHub">🐙 GitHub</a>
+              <a href="#" class="card-btn-primary" aria-label="Ver demonstração">🚀 Ver Projeto</a>
+            </div>
           </div>
-        </div>
-      </article>
-      <article class="project-card" data-category="ia">
-        <span class="card-badge wip" aria-label="Em desenvolvimento">🔧 Em breve</span>
-        <div class="card-thumb">
-          <div class="card-thumb-placeholder">
-            <span class="icon">🤖</span>
-            <span>Projeto com IA</span>
-          </div>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">Projeto com IA</h3>
-          <p class="card-desc">Descreva seu projeto que usa Inteligência Artificial ou automação.</p>
-          <div class="card-stack">
-            <span class="stack-tag">Python</span>
-            <span class="stack-tag">OpenAI</span>
-            <span class="stack-tag">N8N</span>
-          </div>
-          <div class="card-links">
-            <a href="#" class="card-btn-ghost" aria-label="Ver código no GitHub">🐙 GitHub</a>
-            <a href="#" class="card-btn-primary" aria-label="Ver demonstração">🚀 Ver Projeto</a>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
+        </article>
+      </div>
+    </section>
 
-  <!-- CERTIFICADOS -->
-  <section id="certificados" aria-labelledby="certTitle">
-    <div class="section-photo-bg certificados-bg" aria-hidden="true"></div>
-    <div class="section-header">
-      <span class="section-eyebrow" aria-hidden="true">// credenciais.json</span>
-      <h2 class="section-title" id="certTitle">Anéis de <span class="gold">Crescimento</span></h2>
-      <p class="section-subtitle">Assim como cada anel de uma árvore marca um ano de crescimento, cada certificado marca um avanço real.</p>
-      <div class="section-divider" aria-hidden="true"></div>
-    </div>
-    <div class="cert-stats" role="list" aria-label="Estatísticas de certificados">
-      <div class="cert-stat" role="listitem">
-        <span class="cert-stat-num" id="certCount">0</span>
-        <span class="cert-stat-label">Certificados</span>
+    <!-- CERTIFICADOS -->
+    <section id="certificados" aria-labelledby="certTitle">
+      <div class="section-photo-bg certificados-bg" aria-hidden="true"></div>
+      <div class="section-header">
+        <span class="section-eyebrow" aria-hidden="true">// credenciais.json</span>
+        <h2 class="section-title" id="certTitle">Anéis de <span class="gold">Crescimento</span></h2>
+        <p class="section-subtitle">Assim como cada anel de uma árvore marca um ano de crescimento, cada certificado
+          marca um avanço real.</p>
+        <div class="section-divider" aria-hidden="true"></div>
       </div>
-      <div class="cert-stat" role="listitem">
-        <span class="cert-stat-num" id="certHours">0h</span>
-        <span class="cert-stat-label">Horas de estudo</span>
-      </div>
-      <div class="cert-stat" role="listitem">
-        <span class="cert-stat-num">100%</span>
-        <span class="cert-stat-label">Verificados</span>
-      </div>
-    </div>
-    <div class="cert-grid" id="certGrid">
-      <article class="cert-card" tabindex="0" aria-label="Certificado: Adicione seu certificado">
-        <div class="cert-card-top">
-          <div class="cert-icon" aria-hidden="true">🌿</div>
-          <span class="cert-category frontend">Front-end</span>
+      <div class="cert-stats" role="list" aria-label="Estatísticas de certificados">
+        <div class="cert-stat" role="listitem">
+          <span class="cert-stat-num" id="certCount">0</span>
+          <span class="cert-stat-label">Certificados</span>
         </div>
-        <h3 class="cert-name">Adicione seu Certificado</h3>
-        <p class="cert-issuer">📚 Plataforma · Ano</p>
-        <div class="cert-meta">
-          <span>⏱ Xh de estudo</span>
-          <span class="cert-verified">✅ Verificado</span>
+        <div class="cert-stat" role="listitem">
+          <span class="cert-stat-num" id="certHours">0h</span>
+          <span class="cert-stat-label">Horas de estudo</span>
         </div>
-        <p class="cert-hint">Clique para ver detalhes</p>
-      </article>
-    </div>
-  </section>
-</main>
+        <div class="cert-stat" role="listitem">
+          <span class="cert-stat-num">100%</span>
+          <span class="cert-stat-label">Verificados</span>
+        </div>
+      </div>
+      <div class="cert-grid" id="certGrid">
+        <article class="cert-card" tabindex="0" aria-label="Certificado: Adicione seu certificado">
+          <div class="cert-card-top">
+            <div class="cert-icon" aria-hidden="true">🌿</div>
+            <span class="cert-category frontend">Front-end</span>
+          </div>
+          <h3 class="cert-name">HTML5</h3>
+          <p class="cert-issuer">📚 Devclub · 2026</p>
+          <div class="cert-meta">
+            <span>⏱ Xh de estudo</span>
+            <span class="cert-verified">✅ Verificado</span>
+          </div>
+          <p class="cert-hint">Clique para ver detalhes</p>
+        </article>
+        <article class="cert-card" tabindex="0" aria-label="Certificado: Adicione seu certificado">
+          <div class="cert-card-top">
+            <div class="cert-icon" aria-hidden="true">🌿</div>
+            <span class="cert-category frontend">Front-end</span>
+          </div>
+          <h3 class="cert-name">CSS3</h3>
+          <p class="cert-issuer">📚 Devclub · 2026</p>
+          <div class="cert-meta">
+            <span>⏱ Xh de estudo</span>
+            <span class="cert-verified">✅ Verificado</span>
+          </div>
+          <p class="cert-hint">Clique para ver detalhes</p>
+        </article>
+        <article class="cert-card" tabindex="0" aria-label="Certificado: Adicione seu certificado">
+          <div class="cert-card-top">
+            <div class="cert-icon" aria-hidden="true">🌿</div>
+            <span class="cert-category frontend">Front-end</span>
+          </div>
+          <h3 class="cert-name">Javascript</h3>
+          <p class="cert-issuer">📚 Devclub · 2026</p>
+          <div class="cert-meta">
+            <span>⏱ Xh de estudo</span>
+            <span class="cert-verified">✅ Verificado</span>
+          </div>
+          <p class="cert-hint">Clique para ver detalhes</p>
+        </article>
+        <article class="cert-card" tabindex="0" aria-label="Certificado: Adicione seu certificado">
+          <div class="cert-card-top">
+            <div class="cert-icon" aria-hidden="true">🌿</div>
+            <span class="cert-category frontend">Front-end</span>
+          </div>
+          <h3 class="cert-name">??</h3>
+          <p class="cert-issuer">📚 Devclub · 2026</p>
+          <div class="cert-meta">
+            <span>⏱ Xh de estudo</span>
+            <span class="cert-verified">✅ Verificado</span>
+          </div>
+          <p class="cert-hint">Clique para ver detalhes</p>
+        </article>
+      </div>
+    </section>
+  </main>
 
-<footer class="status-bar" role="contentinfo">
-  <div class="status-left">
-    <span class="status-online" aria-label="Status: online">ONLINE</span>
-    <span aria-hidden="true">ALERSON FERREIRA</span>
-    <span aria-hidden="true">© 2025</span>
-    <span aria-hidden="true">Plantado com propósito 🌱</span>
-  </div>
-  <div class="ticker" aria-hidden="true">
-    <span class="ticker-inner" id="ticker">
-      > Disponível para oportunidades &nbsp;&nbsp; > Dev Fullstack &nbsp;&nbsp; > Cibersegurança &nbsp;&nbsp; > IA &nbsp;&nbsp; > Open to work &nbsp;&nbsp; > Disponível para oportunidades &nbsp;&nbsp; > Dev Fullstack &nbsp;&nbsp; > Cibersegurança &nbsp;&nbsp; > IA &nbsp;&nbsp; > Open to work
-    </span>
-  </div>
-  <div class="status-right" aria-hidden="true">
-    <span>SYS::PORTFOLIO_v1.0</span>
-    <span>UPTIME: OK</span>
-  </div>
-</footer>
-<script src="script.js"></script>
+  <footer class="status-bar" role="contentinfo">
+    <div class="status-left">
+      <span class="status-online" aria-label="Status: online">ONLINE</span>
+      <span aria-hidden="true">ALERSON FERREIRA</span>
+      <span aria-hidden="true">© 2025</span>
+      <span aria-hidden="true">Plantado com propósito 🌱</span>
+    </div>
+    <div class="ticker" aria-hidden="true">
+      <span class="ticker-inner" id="ticker">
+        > Disponível para oportunidades &nbsp;&nbsp; > Dev Fullstack &nbsp;&nbsp; > Cibersegurança &nbsp;&nbsp; > IA
+        &nbsp;&nbsp; > Open to work &nbsp;&nbsp; > Disponível para oportunidades &nbsp;&nbsp; > Dev Fullstack
+        &nbsp;&nbsp; > Cibersegurança &nbsp;&nbsp; > IA &nbsp;&nbsp; > Open to work
+      </span>
+    </div>
+    <div class="status-right" aria-hidden="true">
+      <span>SYS::PORTFOLIO_v1.0</span>
+      <span>UPTIME: OK</span>
+    </div>
+  </footer>
+  <script src="script.js"></script>
 </body>
+
 </html>
