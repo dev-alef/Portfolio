@@ -33,13 +33,13 @@ const introMessages = [
 ];
 
 function runIntro() {
-  const bar      = document.getElementById('introBar');
-  const pct      = document.getElementById('introPct');
+  const bar = document.getElementById('introBar');
+  const pct = document.getElementById('introPct');
   const statusTx = document.getElementById('introStatusText');
   const btnEnter = document.getElementById('btnEnter');
-  const btnSkip  = document.getElementById('btnSkip');
+  const btnSkip = document.getElementById('btnSkip');
   const progressWrap = document.querySelector('.intro-progress-wrap');
-  
+
   if (!bar) return;
 
   let current = 0;
@@ -151,7 +151,7 @@ function setupActiveNav() {
 // --- MENU MOBILE ---
 function setupMobileMenu() {
   const toggle = document.getElementById('navToggle');
-  const links  = document.getElementById('navLinks');
+  const links = document.getElementById('navLinks');
   if (!toggle || !links) return;
 
   toggle.addEventListener('click', () => {
@@ -212,7 +212,7 @@ function setupSound() {
     audio.src = list[trackIndex % list.length];
     if (autoplay) {
       audio.volume = 0;
-      audio.play().catch(() => {});
+      audio.play().catch(() => { });
       fadeTo(targetVolume);
     }
   }
@@ -254,7 +254,7 @@ function setupSound() {
     if (playing) {
       if (!audio.src) loadTrack(false);
       audio.volume = 0;
-      audio.play().catch(() => {});
+      audio.play().catch(() => { });
       fadeTo(targetVolume);
     } else {
       fadeTo(0, () => audio.pause());
@@ -274,7 +274,7 @@ function setupSound() {
 
 // --- FILTROS DO PORTFÓLIO ---
 function setupFilters() {
-  const btns  = document.querySelectorAll('.filter-btn');
+  const btns = document.querySelectorAll('.filter-btn');
   const cards = document.querySelectorAll('.project-card');
   if (!btns.length) return;
 
@@ -286,7 +286,7 @@ function setupFilters() {
 
       const filter = btn.dataset.filter;
       cards.forEach(card => {
-        const match = filter === 'todos' || card.dataset.category === filter;
+        const match = filter === 'todos' || card.dataset.category.split(' ').includes(filter);
         card.style.display = match ? 'block' : 'none';
       });
     });
