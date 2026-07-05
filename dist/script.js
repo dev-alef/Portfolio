@@ -82,6 +82,8 @@ function enterSite() {
   const intro = document.getElementById('intro');
   if (!intro) return;
   intro.classList.add('hidden');
+  // Clique de "entrar" conta como interação do usuário — aproveita pra já iniciar o áudio
+  document.dispatchEvent(new Event('site:enter'));
   // Foco para o conteúdo principal para acessibilidade
   setTimeout(() => {
     const hero = document.getElementById('hero');
@@ -243,8 +245,8 @@ function setupSound() {
     });
   });
 
-  btn.addEventListener('click', () => {
-    playing = !playing;
+  function setPlaying(next) {
+    playing = next;
     btn.textContent = playing ? '🔊' : '🔇';
     btn.setAttribute('aria-pressed', playing);
     btn.setAttribute('aria-label', playing ? 'Desativar som' : 'Ativar som');
@@ -257,7 +259,15 @@ function setupSound() {
     } else {
       fadeTo(0, () => audio.pause());
     }
-  });
+  }
+
+  btn.addEventListener('click', () => setPlaying(!playing));
+
+  // Assim que a pessoa entra no site (clique em "Entrar"/"Pular intro"),
+  // esse gesto já conta como interação do usuário e libera o autoplay com som.
+  document.addEventListener('site:enter', () => {
+    if (!playing) setPlaying(true);
+  }, { once: true });
 
   loadTrack(false);
 }
