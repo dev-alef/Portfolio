@@ -1,3 +1,7 @@
 {
-  "outputDirectory": "dist"
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npm --prefix prototypes/genesis-glass ci",
+  "buildCommand": "npm --prefix prototypes/genesis-glass run build",
+  "outputDirectory": "prototypes/genesis-glass/build"
 }

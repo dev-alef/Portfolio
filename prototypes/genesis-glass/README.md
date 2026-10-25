@@ -11,7 +11,7 @@ npm run dev
 ```
 
 Prévia: http://localhost:5175. Versão anterior: http://localhost:5173, quando seu
-servidor estiver iniciado. Nenhuma publicação foi feita.
+servidor estiver iniciado. A publicação da Vercel é configurada pelo `vercel.json` da raiz.
 
 ## Cenas
 
@@ -90,9 +90,8 @@ git worktree add ../portfolio-alerson-backup origin/backup/portfolio-alerson-pre
 python3 -m http.server 4173 --directory ../portfolio-alerson-backup/dist
 ```
 
-Este projeto é independente. O deploy atual na raiz continua usando `dist`.
-Para publicar Genesis, configure a raiz como `prototypes/genesis-glass`,
-com `npm run build` e saída `build`.
+O deploy da raiz agora instala e compila `prototypes/genesis-glass`, publicando
+`prototypes/genesis-glass/build`. A pasta `dist` antiga permanece preservada.
 
 ## Backup local da edição anterior com vídeo
 
