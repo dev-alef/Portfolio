@@ -1,1 +1,5 @@
 node_modules/
+prototypes/forest-3d/build/
+
+prototypes/genesis-glass/build/
+prototypes/genesis-glass/test-results/
