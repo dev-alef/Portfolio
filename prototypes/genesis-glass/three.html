@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#091510" />
+  <meta name="description" content="Genesis Code Soluções. Sites, sistemas e automações com propósito. Tecnologia que cria raízes." />
+  <title>Genesis Code Soluções — Tecnologia que cria raízes</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='20' fill='%230e2118'/%3E%3Cpath d='M20 30V10m0 8-7-5m7 11 8-7' stroke='%23becbad' stroke-width='2' fill='none'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body data-stage="0" data-moving="false">
+  <div class="forest-backdrop" aria-hidden="true"></div>
+  <canvas id="forest-scene" aria-hidden="true"></canvas>
+  <div class="shade" aria-hidden="true"></div>
+  <div class="hero">
+    <header>
+      <a class="brand" href="#inicio" aria-label="Genesis Code Soluções, início" id="home">
+        <svg viewBox="0 0 40 48" fill="none" aria-hidden="true"><path d="M20 38V10m0 11-10-7V7m10 21 11-10V8M20 34l-9 7m9-7 9 7"/><circle cx="10" cy="5" r="2"/><circle cx="31" cy="6" r="2"/><circle cx="20" cy="8" r="2"/></svg>
+        <span>Genesis Code<small>SOLUÇÕES</small></span>
+      </a>
+      <nav aria-label="Navegação principal">
+        <button id="skip" type="button">Pular animação <span aria-hidden="true">↗</span></button>
+        <a href="https://www.linkedin.com/in/alersonferreira/" target="_blank" rel="noopener noreferrer" class="nav-contact">Vamos conversar <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+    <main id="inicio" tabindex="-1">
+      <div class="intro" id="copy">
+        <p class="eyebrow" id="eyebrow">A ORIGEM</p>
+        <h1 id="headline">Tecnologia que<br/><em>cria raízes.</em></h1>
+        <p class="description" id="description">Sites, sistemas e automações.<br/>Feitos para o seu negócio crescer.</p>
+        <button id="explore" class="primary" type="button">Explorar a floresta <span aria-hidden="true">↗</span></button>
+        <a id="contact" class="primary" href="https://www.linkedin.com/in/alersonferreira/" target="_blank" rel="noopener noreferrer" hidden>Vamos conversar <span aria-hidden="true">↗</span></a>
+      </div>
+      <div id="loading" role="status"><span>Preparando a floresta</span><span id="load-number">0%</span><div class="load-track"><i id="load-bar"></i></div></div>
+    </main>
+    <footer>
+      <div class="journey-meta"><span id="counter">00 / 05</span><span class="divider"></span><span id="chapter">A origem</span></div>
+      <ol class="progress" aria-label="Cinco etapas da experiência"><li aria-label="1. Encontro"></li><li aria-label="2. Criação"></li><li aria-label="3. Perspectiva"></li><li aria-label="4. Conexão"></li><li aria-label="5. Um novo começo"></li></ol>
+      <div class="controls"><button id="previous" type="button" aria-label="Etapa anterior" disabled>←</button><button id="next" type="button" aria-label="Próxima etapa">→</button><button id="sound" type="button" aria-pressed="false"><span aria-hidden="true">◖</span> <span id="sound-label">Ativar som</span></button></div>
+    </footer>
+    <p class="gesture-hint" id="hint">Role para descobrir <span aria-hidden="true">↓</span></p>
+  </div>
+  <p id="scene-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true">Preparando a experiência.</p>
+  <noscript><div class="no-script">Tecnologia que cria raízes. <a href="https://www.linkedin.com/in/alersonferreira/">Converse com a Genesis Code no LinkedIn ↗</a></div></noscript>
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

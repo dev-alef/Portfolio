@@ -1,0 +1,28 @@
+{
+  "asset": "Pine Tree 01 twig textures",
+  "source": "https://polyhaven.com/a/pine_tree_01",
+  "license": "CC0-1.0",
+  "license_url": "https://polyhaven.com/license",
+  "authors": [
+    "Rico Cilliers",
+    "Rob Tuytel"
+  ],
+  "usage": "Twig textures on original instanced canopy geometry; no full pine model imported.",
+  "files": [
+    {
+      "file": "pine_tree_01_twig_diff_1k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/pine_tree_01/pine_tree_01_twig_diff_1k.jpg",
+      "md5": "b6e5f4e8c228c275e5ff75cb165c2e1f"
+    },
+    {
+      "file": "pine_tree_01_twig_alpha_1k.png",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/pine_tree_01/pine_tree_01_twig_alpha_1k.png",
+      "md5": "641911a5a3f543911dad04ebb26e7bca"
+    },
+    {
+      "file": "pine_tree_01_twig_nor_gl_1k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/pine_tree_01/pine_tree_01_twig_nor_gl_1k.jpg",
+      "md5": "972d28f52f07ea271792b5bfbb8a3286"
+    }
+  ]
+}
