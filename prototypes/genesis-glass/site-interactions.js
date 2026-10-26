@@ -1,3 +1,4 @@
+export const arrowIcon=(direction='diagonal')=>`<svg class="ui-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="${direction==='left'?'M20 12H4m6-6-6 6 6 6':direction==='right'?'M4 12h16m-6-6 6 6-6 6':'M5 19 19 5M6 5h13v13'}"/></svg>`;
 import {gsap} from 'gsap';
 export const audioIcon=(muted=false)=>`<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/>${muted?'<path d="m16 9 5 6m0-6-5 6"/>':'<path d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/>'}</svg>`;
 export const decodeLabel=text=>`<span class="decode-label" data-label="${text}" aria-hidden="true"><span>${text}</span></span>`;

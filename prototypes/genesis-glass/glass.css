@@ -93,7 +93,7 @@ body[data-stage="5"] .scroll-cue{visibility:hidden}body[data-moving="true"] .scr
 /* H01 text navigation: letters move within a stable label, icon stays still. */
 .hero-menu-link{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;font:10px monospace;letter-spacing:1px;text-transform:uppercase;padding:13px 0}.hero-menu-link .char-label{display:inline-block}.hero-menu-link .char-label span{display:inline-block;white-space:pre}.hero-menu-link:after{left:0;right:0;bottom:5px;transform:scaleX(0);transform-origin:right}.hero-menu-link:hover:after,.hero-menu-link:focus-visible:after{transform-origin:left}.mute-link-icon{display:flex}.mute-link-icon svg{width:19px;height:19px;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 a .decode-label,.text-link .decode-label{display:inline-grid;float:none;max-width:100%}.text-link:hover .decode-label,.text-link:hover .decode-label>span{translate:none}.email-link .decode-label,.final-email .decode-label{font-family:inherit}
-@media(min-width:901px){.journey-footer{display:grid;grid-template-columns:1fr auto auto 1fr;gap:14px}.journey-meta{grid-column:1;grid-row:1;justify-self:end}.journey-footer .scroll-cue{grid-column:2;grid-row:1}.journey-footer .progress{grid-column:3;grid-row:1}.journey-footer .controls{grid-column:4;grid-row:1;justify-self:start;margin-left:0}}
+@media(min-width:901px){.journey-footer{position:relative;display:flex;justify-content:space-between;gap:14px}.journey-meta{margin-right:auto}.journey-footer .progress{position:absolute;left:50%;transform:translateX(-50%);margin:0}.journey-footer .scroll-cue{position:absolute;left:25%;right:auto;transform:translateX(-50%);margin:0;gap:7px}.journey-footer .controls{margin-left:auto}}
 /* L01 — capsule with sliding label and animated fine border. */
 @property --contact-angle{syntax:'<angle>';inherits:false;initial-value:0deg}
 .header-capsule{--contact-angle:0deg;position:relative;display:inline-flex;align-items:center;gap:22px;padding:14px 20px;border:1px solid #d9e6ff73;border-radius:40px;font-size:12px;white-space:nowrap;background:linear-gradient(125deg,#ffffff0d,#b3b9ed16);isolation:isolate;transition:box-shadow .4s,background .4s}
@@ -104,3 +104,10 @@ a .decode-label,.text-link .decode-label{display:inline-grid;float:none;max-widt
 @media(prefers-reduced-motion:reduce){.header-capsule:before{animation:none}.header-capsule .roll-label>span,.header-capsule .link-arrow{transition:none}}
 /* Compact header contact action. */
 .header-capsule{padding:10px 14px;gap:12px;font-size:10px}.header-capsule .link-arrow{font-size:15px}
+.brand small{letter-spacing:2px}#menu-title small{display:block;font-size:9px;letter-spacing:1.5px;margin-top:5px}
+@media(max-width:370px){.brand small{font-size:8px;letter-spacing:1.5px}}
+.brand-symbol{display:block;width:44px;height:44px;flex-shrink:0;object-fit:contain}
+@media(max-width:760px){.brand-symbol{width:36px;height:36px}}
+@media(max-width:370px){.brand-symbol{width:32px;height:32px}}
+/* Vector arrows avoid platform-dependent emoji substitution on mobile. */
+.ui-arrow{display:inline-block;width:1em;height:1em;vertical-align:middle;flex-shrink:0;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;fill:none}.controls .ui-arrow,.rail-controls .ui-arrow{width:18px;height:18px}.primary>span .ui-arrow{width:18px;height:18px}.header-capsule .link-arrow .ui-arrow{width:16px;height:16px}.email-link .ui-arrow{width:22px;height:22px}.text-link .ui-arrow{width:14px;height:14px}
