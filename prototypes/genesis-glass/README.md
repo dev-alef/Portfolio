@@ -11,7 +11,7 @@ npm run dev
 ```
 
 Prévia: http://localhost:5175. Versão anterior: http://localhost:5173, quando seu
-servidor estiver iniciado. A publicação da Vercel é configurada pelo `vercel.json` da raiz.
+servidor estiver iniciado. Nenhuma publicação foi feita.
 
 ## Cenas
 
@@ -90,8 +90,9 @@ git worktree add ../portfolio-alerson-backup origin/backup/portfolio-alerson-pre
 python3 -m http.server 4173 --directory ../portfolio-alerson-backup/dist
 ```
 
-O deploy da raiz agora instala e compila `prototypes/genesis-glass`, publicando
-`prototypes/genesis-glass/build`. A pasta `dist` antiga permanece preservada.
+Este projeto é independente. O deploy atual na raiz continua usando `dist`.
+Para publicar Genesis, configure a raiz como `prototypes/genesis-glass`,
+com `npm run build` e saída `build`.
 
 ## Backup local da edição anterior com vídeo
 
@@ -126,3 +127,46 @@ a partir de 27 segundos há silêncio. Vídeos e versão anterior permanecem int
 
 A marca do header aparece em maiúsculas e maior. Ações compartilham acabamento
 esmeralda, reflexos e bordas de vidro; navegação do header permanece textual.
+
+## Prévia local — navegação e áudio (25/10/2026)
+
+Header e CTA de contato usam L07 (texto que se decodifica), com nomes acessíveis
+estáveis e sem movimento em prefers-reduced-motion. O início oferece entrada
+com som, autorizado por clique, ou silenciosa. O controle de som usa SVG e
+aria-label. Em telas até 900 px, menu modal substitui o atalho Pular animação
+e dá acesso às seis seções; Esc fecha e o foco retorna ao botão de abertura.
+
+Setas em SVG/CSS adaptam as duas camadas, deslocamentos e ciclo de 61 frames
+a 30 fps do arquivo fornecido, preservado em public/motion/scroll-down-original.json.
+O aviso fica no header e no footer e é ocultado na última cena.
+
+Com o dev server aberto, execute `node tools/verify-navigation.mjs`: verifica
+som real após clique, modo silencioso, L07, menu, teclas e larguras 320–1100 px.
+A coleção offline independente inclui H01 (header completo), L01–L08 e painéis
+01–18. Estas alterações estão em prévia local e ainda não foram publicadas.
+
+### Ajustes mobile e navegação — 25/10/2026
+
+A abertura aceita um toque mesmo quando o navegador disponibiliza apenas metadados do vídeo. `play()` é solicitado antes de aguardar a saída dos painéis. A espera tem limite e, em falha, a interface estática continua navegável com “Tentar carregar vídeo”. Isso corrige o caso reproduzido de preload limitado; não equivale a validação em aparelho físico ou da conexão do visitante.
+
+O menu mobile usa GSAP com entrada em sequência e respeita movimento reduzido. O aviso de rolagem aparece somente no footer desktop. “Explorar sem som” mantém semântica de ação, com aparência de link H01. “Vamos conversar” aponta à cena Sobre e FAQ, que reúne contato e redes sociais. Os JSON fornecidos ficam em `public/icons/`, renderizados pelo player SVG leve do Lottie, carregado sob demanda e animado apenas ao interagir.
+
+Verificação: `npm test`, `npm run build`, `node tools/verify-mobile-video.mjs`, `node tools/verify-mobile-layout.mjs` e `node tools/verify-navigation.mjs`. Prévia local em http://localhost:5175; estas alterações ainda não foram publicadas.
+
+### Vitrine comercial local — 10/11/2026
+
+A cena Soluções usa `catalog.js` (serviços, escopo, preços propostos e checkouts), `catalog-view.js` (cartões e comparação de planos) e `catalog.css`. Capturas das demonstrações públicas ficam em `public/solutions/`. O catálogo substitui os conceitos genéricos da cena 01 e reutiliza sua navegação, filtros e dialog acessível.
+
+O usuário autorizou a direção comercial de implantação única + mensalidade e ajustes de preço, escopo e franquias. `catalog.js` é a fonte dos valores e limites definidos para a vitrine; `commercialTerms` centraliza hospedagem, suporte e exclusões. Os planos de IA agora usam respostas/gerações, não conversas completas, e diferem da oferta externa ainda não atualizada. Clínica: só o site foi visto; sistema interno não validado. Estoque: acesso restrito, apresentado por demonstração guiada. As integrações opcionais de IA não estão incluídas automaticamente.
+
+Nenhuma cobrança está ativa. `checkoutFor` exige aprovação explícita e URL HTTPS antes de retornar um destino de pagamento. Mesmo assim, a ativação comercial depende de revisar escopo, custos, limites, condições e checkout correto para cada plano. Os CTAs provisórios abrem uma conversa de interesse, sem envio automático. A autorização de preços não habilita o checkout: faltam os destinos reais de pagamento e a adequação dos produtos. A prévia indica contratação por proposta. A implementação atual não provisiona contas nem acompanha renovações/reembolsos; isso exige uma integração posterior ao pagamento.
+
+Verificação: `npm test`, `npm run build`, `node tools/verify-catalog.mjs` e `npm run test:browser`. Preços atualizados apenas localmente; nenhum produto externo, banco ou checkout foi alterado. Não confundir as condições comerciais exibidas com bloqueios de uso implementados no servidor.
+
+Direção visual escolhida: projetos em destaque. A vitrine usa capturas maiores, informações resumidas e preços somente nos detalhes da solução. As capturas e o botão “Conhecer solução” abrem a mesma comparação de planos; “Ver projeto” acessa a demonstração externa. Essa revisão visual permanece local até aprovação.
+
+No desktop, a vitrine usa grade com várias linhas e rolagem vertical do painel, com barra à direita. O carrossel horizontal fica somente no mobile/tablet. Teclas de rolagem dentro da galeria desktop rolam o conteúdo; o footer continua disponível para navegar entre cenas.
+
+A política de IA prevê 1.500 / 6.000 / 10.000 respostas mensais e pausa ao esgotar a franquia, sem excedente automático nem acumulação. Isso é configuração comercial do catálogo: é necessário alinhar contadores, modelos, limites de tokens, suporte e página do produto antes da ativação. Clínica e estoque exigem demonstração guiada e teste dos limites, permissões e backup previstos.
+
+Publicação autorizada em 10/11/2026: vitrine e planos aprovados, mantendo a hospedagem atual. O usuário esclareceu que Genesis Atendimento ainda não está em funcionamento. A oferta aparece como “Em desenvolvimento”, com preços e franquias previstos; links desse produto preparam interesse no lançamento pelo WhatsApp, sem apresentar uma demonstração funcional nem habilitar pagamento. A migração para Railway será feita depois, em trabalho separado.
